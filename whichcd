@@ -1,0 +1,11 @@
+function whichcd(){
+    echo "------------------------------------"
+    echo $@ "found in" $(dirname $(which $@))
+    echo "------------------------------------"
+    echo "VERSION"
+    echo $($@ --version)
+    echo "------------------------------------"
+    cd $(dirname $(which $@))
+    echo "Matching items in directory: "
+    echo $(ls | grep $@)
+}
